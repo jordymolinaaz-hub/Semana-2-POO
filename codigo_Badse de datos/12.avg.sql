@@ -1,0 +1,1 @@
+SELECT avg(Edad) from user;

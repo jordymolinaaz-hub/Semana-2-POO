@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manga </title>
+    <link rel="stylesheet" href="CSSMENU.css">
+</head>
+<body>
+      
+  <div class="search-bar-wrapper">
+    <div class="search">
+      <input type="text" id="buscador" placeholder="Buscar episodio...">
+    </div>
+  </div>
+
+  
+  <main>
+
+    
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Series</a></li>
+      <li><a href="#">Películas</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+
+    
+    <div class="titulo">Episodios disponibles del Kaiju Nº8</div>
+
+    
+    <div class="container" id="contenedor-tarjetas">
+  <div class="card">
+    <img src="https://i5.walmartimages.com/seo/Kaiju-No-8-Volume-3-Hardcover_86da1291-8fe0-4961-b24c-46254ce4c5a8.8b4c8b69efe34cb3a976d350c4b3248b.jpeg" alt="Episodio 1">
+    <p class="titulo-episodio">Episodio 1</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/48/ce/48ce5aa33ebee9712f472569198fcfbe.jpg" alt="Episodio 2">
+    <p class="titulo-episodio">Episodio 2</p>
+  </div>
+
+  <div class="card">
+    <img src="https://i.ebayimg.com/images/g/nAYAAOSwm7JmCnhY/s-l1200.jpg" alt="Episodio 3">
+    <p class="titulo-episodio">Episodio 3</p>
+  </div>
+
+  <div class="card">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/818hH0dIFKL._AC_UL600_SR600,600_.jpg" alt="Episodio 4">
+    <p class="titulo-episodio">Episodio 4</p>
+  </div>
+
+  <div class="card">  
+    <img src="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781974734184/kaiju-no-8-vol-5-9781974734184_lg.jpg" alt="Episodio 5">
+    <p class="titulo-episodio">Episodio 5</p>
+  </div>
+
+  <div class="card">
+    <img src="https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/202309/07/00106537348572____1__1200x1200.jpg" alt="Especial Kaiju">
+    <p class="titulo-episodio">Especial Kaiju</p>
+  </div>
+</div>
+  <!-- CARTA DE PRESENTACIÓN -->
+<div class="presentacion">
+  <img src="https://images.steamusercontent.com/ugc/1622974778773506850/4E3829042BFFCFD36B03599134B52F8077E14881/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Foto de Jordy Molina" class="foto-perfil">
+  <div class="texto-presentacion">
+    <h2>Sobre mí</h2>
+    <p>
+      Hola, soy <strong>Jordy Molina</strong>. Me apasiona la animación y el manga, 
+      especialmente <em>Kaiju Nº8</em>.  
+
+      Este sitio lo he creado como una practica en mis vacaciones.
+      Mi objetivo es dar a conocer uno poco sobre este manga
+    </p>
+  </div>
+</div>
+
+
+
+  </main>
+
+  <!-- JS PARA BUSCAR TARJETAS -->
+  <script>
+    const input = document.getElementById('buscador');
+    const cards = document.querySelectorAll('.card');
+
+    input.addEventListener('input', () => {
+      const filtro = input.value.toLowerCase();
+      cards.forEach(card => {
+        const texto = card.querySelector('img').alt.toLowerCase();
+        card.style.display = texto.includes(filtro) ? 'block' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+

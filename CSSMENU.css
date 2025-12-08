@@ -1,0 +1,236 @@
+/* GENERAL */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(aqua, yellow);
+  font-family: Arial, sans-serif;
+}
+
+/* BARRA DE BÚSQUEDA FIJA ARRIBA */
+.search-bar-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 15px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilo del buscador */
+.search {
+  width: 250px;
+  position: relative;
+}
+
+.search input {
+  width: 100%;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  background: #f1f1f1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: 0.4s ease;
+}
+
+.search::before {
+  content: '';
+  position: absolute;
+  margin: auto;
+  top: 22px;
+  right: 0;
+  bottom: 0;
+  left: 22px;
+  width: 12px;
+  height: 2px;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.search:hover input {
+  background: #ffffff;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ESPACIADO PARA QUE NO SE OCUPE EL BUSCADOR */
+main {
+  margin-top: 80px; /* espacio para la barra de búsqueda fija */
+}
+
+/* NAVIGATION */
+ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+ul li {
+  list-style: none;
+  margin: 0 15px;
+  transition: 1s;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  position: relative;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: azure;
+  font-size: 18px;
+  padding: 7px;
+  transition: 1s;
+  z-index: 1;
+}
+
+ul:hover li a {
+  transform: scale(1.3);
+  opacity: .2;
+  filter: blur(4px);
+}
+
+ul li a:hover {
+  transform: scale(1.8);
+  opacity: 1;
+  filter: blur(0px);
+  color: rgb(14, 145, 220);
+}
+
+ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: black;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s;
+  z-index: -1;
+}
+
+ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* TÍTULO */
+.titulo {
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #26689a;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* TARJETAS */
+.container {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.card {
+  transition: 1s ease;
+  cursor: pointer;
+  flex: 0 0 auto;
+  width: 120px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(227, 5, 239, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container:hover > :not(:hover) {
+  opacity: 0.3;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+.card {
+  transition: 0.5s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.titulo-episodio {
+  margin-top: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+/* --- Carta de presentación --- */
+.presentacion {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f0f0f0, #ffffff);
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.15);
+  font-family: Arial, sans-serif;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: aparecerZoom 1s ease-out forwards;
+}
+
+.foto-perfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  border: 3px solid #ff6600;
+  transition: transform 0.3s ease;
+}
+
+.foto-perfil:hover {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.texto-presentacion h2 {
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+
+.texto-presentacion p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* --- Animación --- */
+@keyframes aparecerZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
